@@ -1,0 +1,33 @@
+The equation you gave us:  
+
+m = - (n * log(p)) / (log(2)^2) 
+
+
+false positive probability you gave us in test_bloom_filter.py :
+
+p = 0.05
+
+
+number of keys:
+
+n = 1000000
+
+-----------------------------------------------------------------
+
+1.calculating m:
+
+m = -(1000000 * log(0.05)) / (log(2)^2)
+
+--> m = 14357134.3625 ≈	14357135
+
+
+2.deciding k (number of hashes):
+
+The more hash functions you have, the slower your bloom filter, and the quicker it fills up. 
+If you have too few, however, you may suffer too many false positives.
+
+After researching, I found a function to choose the optimal value k = (m/n)*ln(2)
+
+--> k = 9.95160720429 ≈	10
+
+
